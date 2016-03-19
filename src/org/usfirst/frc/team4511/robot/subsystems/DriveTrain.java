@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4511.robot.*;
 import org.usfirst.frc.team4511.robot.commands.Drive;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -18,6 +19,7 @@ public class DriveTrain extends Subsystem {
 	CANTalon backLeft = new CANTalon(RobotMap.backLeft);
 	CANTalon backRight = new CANTalon(RobotMap.backRight);
 
+	public AnalogGyro gyro = new AnalogGyro(1);
 	public RobotDrive robotD = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 
 	public void initDefaultCommand() {
