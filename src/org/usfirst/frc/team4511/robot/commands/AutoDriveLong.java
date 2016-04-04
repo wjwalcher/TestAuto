@@ -22,7 +22,7 @@ public class AutoDriveLong extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(count <= 4000){
+    	while(count <= 1000){
     		Robot.soulTrain.robotD.tankDrive(.7, .7);
     		count++;
     	}

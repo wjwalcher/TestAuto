@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4511.robot.*;
 import org.usfirst.frc.team4511.robot.commands.Drive;
 
+import edu.wpi.first.wpilibj.ADXL362;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
@@ -19,7 +21,7 @@ public class DriveTrain extends Subsystem {
 	CANTalon backLeft = new CANTalon(RobotMap.backLeft);
 	CANTalon backRight = new CANTalon(RobotMap.backRight);
 
-	public AnalogGyro gyro = new AnalogGyro(1);
+	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public RobotDrive robotD = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 
 	public void initDefaultCommand() {
@@ -36,4 +38,8 @@ public class DriveTrain extends Subsystem {
 	public void stop() {
 		robotD.drive(0, 0);
 	}
+	
+	public void drive(double x) {
+	    robotD.drive(.3, x);
+    }
 }
