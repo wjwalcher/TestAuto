@@ -2,6 +2,7 @@ package org.usfirst.frc.team4511.robot.commands;
 
 import org.usfirst.frc.team4511.robot.Robot;
 
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -33,9 +34,7 @@ public class AutoDrive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(finished){
-        	return true;
-        }
+        if(finished) return true;
     	return false;
     }
 

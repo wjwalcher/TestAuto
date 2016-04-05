@@ -17,8 +17,8 @@ public class Autonomous extends CommandGroup {
     	requires(Robot.soulTrain);
     	
     	addSequential(new AutoDriveLong());
-    	addSequential(new AutoTurn());
-    	addSequential(new AutoDrive());
+    	//addSequential(new AutoTurn());
+    	//addSequential(new AutoDrive());
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());

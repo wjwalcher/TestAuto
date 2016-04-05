@@ -2,13 +2,15 @@ package org.usfirst.frc.team4511.robot.commands;
 
 import org.usfirst.frc.team4511.robot.Robot;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class AutoDriveLong extends Command {
-	int count = 0;
+	double angle;
+	//int count = 0;
 	boolean finished = false;
     public AutoDriveLong() {
         // Use requires() here to declare subsystem dependencies
@@ -18,22 +20,28 @@ public class AutoDriveLong extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//Robot.soulTrain.gyro.reset();
+    	Robot.soulTrain.blEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while(count <= 1000){
-    		Robot.soulTrain.robotD.tankDrive(.7, .7);
-    		count++;
+    	int count = Robot.soulTrain.blEncoder.get();
+    	//angle = Robot.soulTrain.gyro.getAngle();
+    	while(count <= 2364){
+    		/*if(-5 >= angle) Robot.soulTrain.robotD.tankDrive(.3, 0);
+    		if(5 <= angle) Robot.soulTrain.robotD.tankDrive(0, .3);
+    		if(5 >= angle && -5 <= angle){*/
+    			Robot.soulTrain.robotD.tankDrive(.6, .6);
+    			count++;
     	}
+    	//}
     	finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(finished){
-        	return true;
-        }
+        if(finished) return true;
     	return false;
     }
 
